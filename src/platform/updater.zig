@@ -19,9 +19,9 @@ const constants = @import("../core/constants.zig");
 // ── URLs ──────────────────────────────────────────────────────────────────
 
 const RELEASES_API =
-    "https://api.github.com/repos/snappoint-app/snap-point/releases/latest";
+    "https://api.github.com/repos/sulthonmb/snap-point/releases/latest";
 const RELEASES_PAGE =
-    "https://github.com/snappoint-app/snap-point/releases";
+    "https://github.com/sulthonmb/snap-point/releases";
 const USER_AGENT = "SnapPoint/" ++ constants.version.string;
 
 // ── Module-level receive buffer ───────────────────────────────────────────

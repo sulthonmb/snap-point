@@ -38,7 +38,7 @@ Be respectful. We follow the
 ### Clone and build
 
 ```sh
-git clone https://github.com/YOUR_USERNAME/snap-point.git
+git clone https://github.com/sulthonmb/snap-point.git
 cd snap-point
 zig build                # debug build
 zig build bundle         # assemble .app
@@ -123,7 +123,7 @@ want to verify.
 
 ## Reporting Bugs
 
-Open a [GitHub Issue](https://github.com/YOUR_USERNAME/snap-point/issues/new)
+Open a [GitHub Issue](https://github.com/sulthonmb/snap-point/issues/new)
 and include:
 
 - macOS version (`sw_vers`)
