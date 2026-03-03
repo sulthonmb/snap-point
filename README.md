@@ -46,7 +46,7 @@ brew install zig                 # or use zigup: https://github.com/marler8997/z
 ### Download DMG (recommended)
 
 1. Download the latest `SnapPoint-x.y.z.dmg` from
-   [Releases](https://github.com/YOUR_USERNAME/snap-point/releases).
+   [Releases](https://github.com/sulthonmb/snap-point/releases).
 2. Open the DMG and drag **SnapPoint.app** to your Applications folder.
 3. Launch SnapPoint from Applications.
 4. Follow the three-step onboarding to grant Accessibility permission.
@@ -54,7 +54,7 @@ brew install zig                 # or use zigup: https://github.com/marler8997/z
 ### Build from source
 
 ```sh
-git clone https://github.com/YOUR_USERNAME/snap-point.git
+git clone https://github.com/sulthonmb/snap-point.git
 cd snap-point
 zig build bundle                 # builds .app in zig-out/SnapPoint.app
 ./scripts/run-dev.sh             # launch from bundle (required for Accessibility)

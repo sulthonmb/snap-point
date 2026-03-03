@@ -86,5 +86,5 @@ Each release section uses the following change types:
 | **Fixed** | Bug fixes |
 | **Security** | Security-related fixes or improvements |
 
-[Unreleased]: https://github.com/YOUR_USERNAME/snap-point/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/YOUR_USERNAME/snap-point/releases/tag/v1.0.0
+[Unreleased]: https://github.com/sulthonmb/snap-point/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/sulthonmb/snap-point/releases/tag/v1.0.0
