@@ -26,9 +26,7 @@ jobs:
           echo "Version: $TAG"
 
       - name: Install Zig
-        uses: mlugg/setup-zig@v1
-        with:
-          version: "0.15.2"
+        uses: mlugg/setup-zig@v2
 
       - name: Cache Zig global cache
         uses: actions/cache@v4
