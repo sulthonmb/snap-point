@@ -1,6 +1,6 @@
 const std = @import("std");
 
-// SnapPoint build script (Zig 0.15)
+// SnapPoint build script (Zig 0.15.2)
 // Produces a macOS menu-bar agent binary with ObjC interop via zig-objc.
 
 pub fn build(b: *std.Build) void {
