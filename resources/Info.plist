@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Bundle identity -->
+    <key>CFBundleIdentifier</key>
+    <string>com.snappoint.app</string>
+
+    <key>CFBundleName</key>
+    <string>SnapPoint</string>
+
+    <key>CFBundleDisplayName</key>
+    <string>SnapPoint</string>
+
+    <key>CFBundleVersion</key>
+    <string>1</string>
+
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+
+    <key>CFBundleExecutable</key>
+    <string>SnapPoint</string>
+
+    <key>CFBundleIconFile</key>
+    <string>SnapPoint</string>
+
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+
+    <key>CFBundleSignature</key>
+    <string>????</string>
+
+    <!-- Platform support -->
+    <key>LSMinimumSystemVersion</key>
+    <string>13.0</string>
+
+    <!-- Agent app: no Dock icon, no "App is not responding" dialog -->
+    <key>LSUIElement</key>
+    <true/>
+
+    <!-- Accessibility usage description (shown in System Settings) -->
+    <key>NSAccessibilityUsageDescription</key>
+    <string>SnapPoint needs Accessibility access to move and resize windows on your behalf.</string>
+
+    <!-- High-resolution display support -->
+    <key>NSHighResolutionCapable</key>
+    <true/>
+
+    <!-- Disable automatic tabbing (window manager should not be tabbed) -->
+    <key>NSWindowTabbing</key>
+    <string>disallowed</string>
+</dict>
+</plist>

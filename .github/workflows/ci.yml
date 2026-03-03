@@ -1,0 +1,135 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Unit Tests (macOS ${{ matrix.macos }})
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - macos: "13"
+            runner: macos-13
+          - macos: "14"
+            runner: macos-14
+          - macos: "15"
+            runner: macos-15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Zig
+        uses: mlugg/setup-zig@v1
+        with:
+          version: "0.15.0"
+
+      - name: Print environment
+        run: |
+          zig version
+          sw_vers
+          uname -m
+
+      - name: Cache Zig global cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/zig
+          key: zig-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('build.zig.zon') }}
+          restore-keys: |
+            zig-${{ runner.os }}-${{ runner.arch }}-
+
+      - name: Build (debug)
+        run: zig build
+
+      - name: Run unit tests
+        run: zig build test
+
+      - name: Run all tests
+        run: zig build test-all
+
+      - name: Build bundle
+        run: zig build bundle
+
+      - name: Validate binary (dev)
+        run: ./scripts/validate-binary.sh
+
+  build-release:
+    name: Release Build Check
+    runs-on: macos-14
+    needs: [test]
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Zig
+        uses: mlugg/setup-zig@v1
+        with:
+          version: "0.15.0"
+
+      - name: Cache Zig global cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/zig
+          key: zig-release-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('build.zig.zon') }}
+          restore-keys: |
+            zig-release-${{ runner.os }}-${{ runner.arch }}-
+
+      - name: Build ARM64 release
+        run: zig build -Doptimize=ReleaseSmall -Dtarget=aarch64-macos
+
+      - name: Check binary size
+        run: |
+          BINARY="zig-out/bin/SnapPoint"
+          SIZE=$(stat -f%z "$BINARY")
+          SIZE_KB=$((SIZE / 1024))
+          echo "Binary size: ${SIZE_KB} KB"
+          if [[ $SIZE_KB -gt 500 ]]; then
+            echo "::warning::Binary is ${SIZE_KB} KB — exceeds 100 KB target"
+          fi
+
+      - name: Build bundle
+        run: zig build bundle
+
+      - name: Upload bundle artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SnapPoint-bundle-${{ github.sha }}
+          path: zig-out/SnapPoint.app/
+          retention-days: 7
+
+  compat:
+    name: Compatibility Report
+    runs-on: macos-14
+    needs: [test]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Zig
+        uses: mlugg/setup-zig@v1
+        with:
+          version: "0.15.0"
+
+      - name: Run compatibility test
+        run: ./scripts/test-compat.sh
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results-${{ github.sha }}
+          path: test-results/
+          retention-days: 30

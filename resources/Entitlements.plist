@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Distributed outside the App Store: sandbox MUST be false.
+         The App Store sandbox prohibits the AXUIElement global control
+         required for third-party window management. -->
+    <key>com.apple.security.app-sandbox</key>
+    <false/>
+
+    <!-- Hardened Runtime: allow JIT (needed by some ObjC components) -->
+    <key>com.apple.security.cs.allow-jit</key>
+    <false/>
+
+    <!-- Unsigned executable memory (not required for SnapPoint) -->
+    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <false/>
+</dict>
+</plist>

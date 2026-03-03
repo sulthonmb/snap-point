@@ -1,0 +1,43 @@
+{
+  "$schema": "snappoint-config-v1",
+  "general": {
+    "launch_at_login":          false,
+    "snap_sensitivity":         10,
+    "show_ghost_window":        true,
+    "has_completed_onboarding": false
+  },
+  "visuals": {
+    "window_gap":    0,
+    "ghost_opacity": 0.3
+  },
+  "shortcuts": [
+    { "action": "left_half",            "key": "left",  "modifiers": ["ctrl","opt"],       "enabled": true },
+    { "action": "right_half",           "key": "right", "modifiers": ["ctrl","opt"],       "enabled": true },
+    { "action": "top_half",             "key": "up",    "modifiers": ["ctrl","opt"],       "enabled": true },
+    { "action": "bottom_half",          "key": "down",  "modifiers": ["ctrl","opt"],       "enabled": true },
+    { "action": "top_left_quarter",     "key": "u",     "modifiers": ["ctrl","opt"],       "enabled": true },
+    { "action": "top_right_quarter",    "key": "i",     "modifiers": ["ctrl","opt"],       "enabled": true },
+    { "action": "bottom_left_quarter",  "key": "j",     "modifiers": ["ctrl","opt"],       "enabled": true },
+    { "action": "bottom_right_quarter", "key": "k",     "modifiers": ["ctrl","opt"],       "enabled": true },
+    { "action": "first_third",          "key": "d",     "modifiers": ["ctrl","opt"],       "enabled": true },
+    { "action": "center_third",         "key": "f",     "modifiers": ["ctrl","opt"],       "enabled": true },
+    { "action": "last_third",           "key": "g",     "modifiers": ["ctrl","opt"],       "enabled": true },
+    { "action": "top_third",            "key": "up",    "modifiers": ["ctrl","opt","shift"],"enabled": true },
+    { "action": "middle_third",         "key": "right", "modifiers": ["ctrl","opt","shift"],"enabled": true },
+    { "action": "bottom_third",         "key": "down",  "modifiers": ["ctrl","opt","shift"],"enabled": true },
+    { "action": "left_two_thirds",      "key": "e",     "modifiers": ["ctrl","opt"],       "enabled": true },
+    { "action": "right_two_thirds",     "key": "t",     "modifiers": ["ctrl","opt"],       "enabled": true },
+    { "action": "top_two_thirds",       "key": "u",     "modifiers": ["ctrl","opt","shift"],"enabled": true },
+    { "action": "bottom_two_thirds",    "key": "j",     "modifiers": ["ctrl","opt","shift"],"enabled": true },
+    { "action": "top_left_sixth",       "key": "1",     "modifiers": ["ctrl","opt","shift"],"enabled": true },
+    { "action": "top_center_sixth",     "key": "2",     "modifiers": ["ctrl","opt","shift"],"enabled": true },
+    { "action": "top_right_sixth",      "key": "3",     "modifiers": ["ctrl","opt","shift"],"enabled": true },
+    { "action": "bottom_left_sixth",    "key": "4",     "modifiers": ["ctrl","opt","shift"],"enabled": true },
+    { "action": "bottom_center_sixth",  "key": "5",     "modifiers": ["ctrl","opt","shift"],"enabled": true },
+    { "action": "bottom_right_sixth",   "key": "6",     "modifiers": ["ctrl","opt","shift"],"enabled": true },
+    { "action": "almost_maximize",      "key": "return","modifiers": ["ctrl","opt"],       "enabled": true },
+    { "action": "throw_to_next_display","key": "right", "modifiers": ["ctrl","opt","cmd"], "enabled": true },
+    { "action": "throw_to_prev_display","key": "left",  "modifiers": ["ctrl","opt","cmd"], "enabled": true }
+  ],
+  "blacklist": []
+}

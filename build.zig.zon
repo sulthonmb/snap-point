@@ -1,0 +1,21 @@
+.{
+    .name = .snap_point,
+    .version = "1.0.0",
+    .fingerprint = 0x1623c2ce6f075ef6,
+    .minimum_zig_version = "0.15.0",
+    .dependencies = .{
+        .zig_objc = .{
+            .url = "https://github.com/mitchellh/zig-objc/archive/refs/heads/main.tar.gz",
+            .hash = "zig_objc-0.0.0-Ir_Sp7oUAQC3JpeR9EGUFGcHRSx_33IehitnjBCy-CwD",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "tests",
+        "resources",
+        "README.md",
+        "LICENSE",
+    },
+}
